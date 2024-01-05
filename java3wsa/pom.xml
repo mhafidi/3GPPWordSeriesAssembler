@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <parent>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-parent</artifactId>
+      <version>3.1.0</version>
+      <relativePath/> <!-- lookup parent from repository -->
+   </parent>
+   <groupId>com.3gpp</groupId>
+   <artifactId>java3wsa</artifactId>
+   <version>1.0-SNAPSHOT</version>
+   <name>java3wsa-world-series-assembler</name>
+   <description>The "3GPPWordSeriesAssembler" is a Java-based application
+      designed to streamline the handling of technical documentation for 3GPP standards.
+      Its primary function is to automate the process of downloading, extracting,
+      and organizing Word documents (.doc and .docx formats) from
+      a specified remote FTP</description>
+   <properties>
+      <java.version>17</java.version>
+   </properties>
+   <dependencies>
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-websocket</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-test</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>com.fasterxml.jackson.core</groupId>
+         <artifactId>jackson-databind</artifactId>
+         <version>2.13.0</version>
+      </dependency>
+
+   </dependencies>
+
+
+   <build>
+      <plugins>
+
+         <!--        <plugin>
+                     <groupId>org.springframework.boot</groupId>
+                     <artifactId>spring-boot-maven-plugin</artifactId>
+                 </plugin> -->
+
+         <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <configuration>
+               <archive>
+                  <manifest>
+                     <mainClass>com.example.StompApplication</mainClass>
+                  </manifest>
+               </archive>
+               <descriptorRefs>
+                  <descriptorRef>jar-with-dependencies</descriptorRef>
+               </descriptorRefs>
+            </configuration>
+            <executions>
+               <execution>
+                  <id>make-assembly</id>
+                  <phase>package</phase>
+                  <goals>
+                     <goal>single</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+               <source>17</source>
+               <target>17</target>
+            </configuration>
+         </plugin>
+         <plugin>
+            <groupId>com.coderplus.maven.plugins</groupId>
+            <artifactId>copy-rename-maven-plugin</artifactId>
+            <version>1.0</version>
+            <!--                <executions>
+                                <execution>
+                                    <id>copy-file</id>
+                                    <phase>generate-sources</phase>
+                                    <goals>
+                                        <goal>copy</goal>
+                                    </goals>
+                                    <configuration>
+                                        <sourceFile>src/main/resources/linesToRemove</sourceFile>
+                                        <destinationFile>target/linesToRemove</destinationFile>
+                                    </configuration>
+                                </execution>
+                            </executions>-->
+         </plugin>
+      </plugins>
+   </build>
+</project>
