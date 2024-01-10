@@ -6,4 +6,9 @@ public class HttpClient implements Client {
     public void connect() {
 
     }
+
+    @Override
+    public void disconnect() {
+
+    }
 }
