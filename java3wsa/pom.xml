@@ -44,6 +44,12 @@
          <artifactId>poi-ooxml</artifactId>
          <version>5.2.2</version> <!-- Use the latest version available -->
       </dependency>
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>4.12</version>
+         <scope>test</scope>
+      </dependency>
    </dependencies>
 
 
